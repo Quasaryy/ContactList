@@ -28,14 +28,13 @@ extension DetailsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if indexPath.row == 0 {
-            let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
-            emailCell.textLabel?.text = "Email: \(person.email)"
-            return emailCell
+            cell.textLabel?.text = "Email: \(person.email)"
+            return cell
         } else {
-            let phoneCell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
-            phoneCell.textLabel?.text = "Phone: \(person.phone)"
-            return phoneCell
+            cell.textLabel?.text = "Phone: \(person.phone)"
+            return cell
         }
     }
     

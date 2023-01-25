@@ -23,16 +23,15 @@ class DetailedListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if indexPath.row == 0 {
-            let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
-            emailCell.textLabel?.text = contacts[indexPath.section].email
-            emailCell.imageView?.image = UIImage(systemName: "at")
-            return emailCell
+            cell.textLabel?.text = contacts[indexPath.section].email
+            cell.imageView?.image = UIImage(systemName: "at")
+            return cell
         } else {
-            let phoneCell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
-            phoneCell.textLabel?.text = contacts[indexPath.section].phone
-            phoneCell.imageView?.image = UIImage(systemName: "phone")
-            return phoneCell
+            cell.textLabel?.text = contacts[indexPath.section].phone
+            cell.imageView?.image = UIImage(systemName: "phone")
+            return cell
         }
     }
 

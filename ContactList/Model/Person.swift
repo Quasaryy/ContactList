@@ -6,10 +6,10 @@
 //
 
 struct Person {
-    var firstName: String
-    var lastName: String
-    var email: String
-    var phone: String
+    let firstName: String
+    let lastName: String
+    let email: String
+    let phone: String
     
     var fullName: String {
         "\(firstName) \(lastName)"
@@ -23,15 +23,13 @@ extension Person {
         let emailsArray = DataManager.email.shuffled()
         let phonesArray = DataManager.phone.shuffled()
         
-        var counter = 0
         var personsArray: [Person] = []
         
-        for _ in 1...firstNamesArray.count {
+        for counter in 0..<firstNamesArray.count {
             personsArray.append(Person(firstName: "\(firstNamesArray[counter])", lastName: "\(lastNamesArray[counter])", email: "\(emailsArray[counter])", phone: "\(phonesArray[counter])"))
-            counter += 1
         }
         return personsArray
     }
 }
 
-var contacts = Person.getDetails()
+let contacts = Person.getDetails()
