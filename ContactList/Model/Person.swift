@@ -18,10 +18,10 @@ struct Person {
 
 extension Person {
     static func getDetails() -> [Person] {
-        var firstNamesArray = DataManager.firstName.shuffled()
-        var lastNamesArray = DataManager.lastName.shuffled()
-        var emailsArray = DataManager.email.shuffled()
-        var phonesArray = DataManager.phone.shuffled()
+        let firstNamesArray = DataManager.firstName.shuffled()
+        let lastNamesArray = DataManager.lastName.shuffled()
+        let emailsArray = DataManager.email.shuffled()
+        let phonesArray = DataManager.phone.shuffled()
         
         var counter = 0
         var personsArray: [Person] = []
@@ -33,3 +33,5 @@ extension Person {
         return personsArray
     }
 }
+
+var contacts = Person.getDetails()
